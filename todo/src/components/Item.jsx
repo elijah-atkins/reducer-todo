@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from 'react';
 
 const Item = props => {
   const handleClick = e => {
