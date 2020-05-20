@@ -2,7 +2,7 @@ import React from "react";
 
 const Item = props => {
   const handleClick = e => {
-    props.toggleItemDone(props.item.id);
+   // props.toggleItemDone(props.item.id);
   };
   return (
     <div

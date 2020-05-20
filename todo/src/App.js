@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import "./scss/index.scss";
 import AddItemForm from './components/AddItemForm'
 import TodoList from "./components/TodoList";
-import items from './data/items';
+import data from './data/data';
 
 function App() {
+    const [items, setItems] = useState(data)
+
     const clearDone = () => {
         // console.log("ea: index.js: clearDone");
-         this.setState({
+         setItems({
            items: [
-             ...this.state.items.filter(item => {
+             items.filter(item => {
                return !item.done;
              })
            ]
@@ -19,9 +21,10 @@ function App() {
         const newItem = {
           name: item,
           id: Date.now(),
-          done: false
+          done: false,
+          editing: false
         };
-        this.setState({ items: [...this.state.items, newItem] });
+        setItems({ items: [...items, newItem] });
       };
   return (
     <div className="App">

@@ -3,7 +3,7 @@ import React, { useReducer } from 'react';
 export const TOGGLE_EDITING = "TOGGLE_EDITNG";
 export const END_ITEM_UPDATE = "END_ITEM_UPDATE";
 export const TOGGLE_DONE = "TOGGLE_DONE";
-export const ADD_TODO = "ADD_TODO";
+
 
 const initialState = {
     //get from local storage
@@ -31,10 +31,6 @@ function reducer(state, action){
                 ...state,
                 item: action.payload ? action.payload : state.item,
                 editing: false
-            }
-        case ADD_TODO:
-            return {
-                ...state,
             }
         default:
             return state;
