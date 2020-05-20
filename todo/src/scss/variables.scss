@@ -1,9 +1,9 @@
 /* Color Variables */
 
-$white: #b4b4c9;
+$white: #ded;
 $black: #123;
-$app-bg: #1c3455;
-$button: #e6b344;
+$app-bg: #47a;
+$button: complement($app-bg);
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 $robo: 'Roboto', sans-serif;
 // @import url(https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap);

@@ -3,6 +3,7 @@ import Item from "./Item";
 
 const TodoList = props => {
   return (
+      <div className="todo-table">
     <div className="todo-list">
       {props.items.map(item => (
         <Item
@@ -11,10 +12,11 @@ const TodoList = props => {
           item={item}
         />
       ))}
-      <button className="clear-btn" onClick={props.clearDone}>
-        Clear Done
-      </button>
     </div>
+          <button className="clear-btn" onClick={props.clearDone}>
+          Clear Done
+        </button>
+        </div>
   );
 };
 

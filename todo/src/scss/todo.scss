@@ -12,6 +12,16 @@ span {
     text-align: left;
 
   }
+  h2 {
+      font-size: 3rem;
+  }
+  .todo-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    font-size: 2rem;
+
+  }
   
   .todo-list {
     display: flex;
@@ -22,11 +32,14 @@ span {
   }
   .item {
     background-color: $button;
-    width: 45%;
+    width: 40%;
     text-align: left;
     margin: 4px 0;
-    padding-left: 8px;
+    padding: 2rem;
     cursor: pointer;
+    @include phone-view(){
+        width: 100%;
+    }
   }
   
   .item.done {
@@ -53,9 +66,10 @@ span {
   button {
     background-color: $button;
     border: 1px solid $button;
-    color: white;
-    font-size: 16px;
-    padding: 6px 14px;
+    color: $white;
+    font-size: 2rem;
+    padding: .5rem 1.5rem;
+    width: 10rem;
   }
   
   input::placeholder {
