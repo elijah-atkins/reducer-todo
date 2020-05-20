@@ -4,39 +4,8 @@ import AddItemForm from './components/AddItemForm'
 import TodoList from "./components/TodoList";
 import './scss/index.scss';
 
+import items from './data/items';
 
-const items = [
-  {
-    name: "Bananas",
-    id: 123,
-    Done: false
-  },
-  {
-    name: "Tortillas",
-    id: 124,
-    Done: false
-  },
-  {
-    name: "Milk",
-    id: 1235,
-    Done: false
-  },
-  {
-    name: "Pizza Sauce",
-    id: 1246,
-    Done: false
-  },
-  {
-    name: "Raw Honey",
-    id: 1237,
-    Done: false
-  },
-  {
-    name: "Granola",
-    id: 1248,
-    Done: false
-  }
-];
 
 class App extends React.Component {
   // Constructor with state
@@ -56,7 +25,7 @@ class App extends React.Component {
         if (itemId === item.id) {
           return {
             ...item,
-            Done: !item.Done
+            done: !item.done
           };
         }
         return item;
@@ -68,7 +37,7 @@ class App extends React.Component {
     const newItem = {
       name: item,
       id: Date.now(),
-      Done: false
+      done: false
     };
     this.setState({ items: [...this.state.items, newItem] });
   };
@@ -78,7 +47,7 @@ class App extends React.Component {
     this.setState({
       items: [
         ...this.state.items.filter(item => {
-          return !item.Done;
+          return !item.done;
         })
       ]
     });
