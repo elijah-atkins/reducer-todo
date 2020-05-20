@@ -26,6 +26,8 @@ In this project, you build an app that let's you display a todo list from reduce
 - [x] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
 - [x] Push commits: git push origin `<firstName-lastName>`.
+- [x] Install sass `npm i node-sass`.
+
 
 Follow these steps for completing your project.
 
