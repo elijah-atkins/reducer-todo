@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import "./scss/index.scss";
 import AddItemForm from "./components/AddItemForm";
 import TodoList from "./components/TodoList";
 import data from "./data/data";
 import { useForm } from "./hooks/useForm";
+import { itemReducer, ADD_TODO } from "./reducers";
 
 function App() {
+  const thisList = {
+    list: [...data],
+  };
+  const [todoState, dispatch] = useReducer(itemReducer, thisList);
   const [items, setItems] = useState(data);
 
   const clearDone = () => {
@@ -24,9 +29,10 @@ function App() {
       done: false,
       editing: false,
     };
-    setItems({ items: [...items, newItem] });
+    dispatch({ type: ADD_TODO, payload: newItem });
+
   };
-  const [values, handleChanges, clearForm, handleSubmit] = useForm(
+  const [values] = useForm(
     [
       {
         todo: "",
@@ -48,7 +54,7 @@ function App() {
         <AddItemForm addItem={addItem} />
       </header>
       <div className="body">
-        <TodoList items={items} clearDone={clearDone} />
+        <TodoList items={todoState.list} clearDone={clearDone} />
       </div>
     </div>
   );
