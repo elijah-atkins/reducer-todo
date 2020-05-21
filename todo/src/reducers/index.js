@@ -24,7 +24,7 @@ export function itemReducer(state, action) {
     case END_ITEM_UPDATE:
       return {
         ...state,
-        todo: action.payload ? action.payload : state.item,
+        todo: action.payload ? action.payload : state.todo,
         editing: false,
       };
     default:

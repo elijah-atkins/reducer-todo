@@ -1,36 +1,36 @@
 const data = [
   {
-    todo: "Bananas",
+    todo: "Fishing",
     id: 123,
     done: false,
     editing: false,
   },
   {
-    todo: "Tortillas",
+    todo: "Camping",
     id: 124,
     done: false,
     editing: false,
   },
   {
-    todo: "Milk",
+    todo: "Shopping",
     id: 1235,
     done: false,
     editing: false,
   },
   {
-    todo: "Pizza Sauce",
+    todo: "Hike",
     id: 1246,
     done: false,
     editing: false,
   },
   {
-    todo: "Raw Honey",
+    todo: "Get Honey",
     id: 1237,
     done: false,
     editing: false,
   },
   {
-    todo: "Granola",
+    todo: "Make Granola",
     id: 1248,
     done: false,
     editing: false,

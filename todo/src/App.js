@@ -3,12 +3,12 @@ import "./scss/index.scss";
 import AddItemForm from "./components/AddItemForm";
 import TodoList from "./components/TodoList";
 import data from "./data/data";
+import { useForm } from "./hooks/useForm";
 
 function App() {
   const [items, setItems] = useState(data);
 
   const clearDone = () => {
-    // console.log("ea: index.js: clearDone");
     setItems({
       items: [
         items.filter((item) => {
@@ -26,6 +26,21 @@ function App() {
     };
     setItems({ items: [...items, newItem] });
   };
+  const [values, handleChanges, clearForm, handleSubmit] = useForm(
+    [
+      {
+        todo: "",
+        id: "",
+        done: false,
+        editing: false,
+      },
+    ],
+    "todo-list",
+    () => {
+      setItems(values);
+    }
+  );
+
   return (
     <div className="App">
       <header className="header">
