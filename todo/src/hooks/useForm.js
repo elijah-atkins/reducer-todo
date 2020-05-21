@@ -1,21 +1,19 @@
 import { useLocalStorage } from "./useLocalStorage";
 
 export const useForm = (initialState, key, submitLogic) => {
-
   const [values, setValues] = useLocalStorage(initialState, key);
 
-  const handleChanges = e => {
-
+  const handleChanges = (e) => {
     setValues({
       ...values,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const clearForm = () => {
     setValues(initialState);
   };
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     submitLogic();
   };

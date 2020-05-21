@@ -4,8 +4,11 @@ $white: #ded;
 $black: #123;
 $app-bg: #47a;
 $button: complement($app-bg);
+
+/* Font Variables */
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 $robo: 'Roboto', sans-serif;
+
 // @import url(https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap);
 // @import url(https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap);
 // $josefin-sans: 'Josefin Sans', sans-serif;
