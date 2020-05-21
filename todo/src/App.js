@@ -34,7 +34,7 @@ function App() {
         </header>
         <body className="body">
         <TodoList
-       //   toggleItemDone={this.toggleItemDone}
+
           items={items}
           clearDone={clearDone}
         />

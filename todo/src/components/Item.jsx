@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useReducer, useState } from "react";
+import { itemReducer, initialTodo, TOGGLE_EDITING, TOGGLE_DONE } from "../reducers";
+const Item = ({ item }) => {
 
-const Item = props => {
+  const initialTodo = {
+    todo: item.todo,
+    editing: false,
+    id:  item.id,
+    done: false,
+  };
+  const [todoState, dispatch] = useReducer(itemReducer, initialTodo);
+  const [newTitleText, editTodoText] = useState(initialTodo.todo);
   const handleClick = e => {
-   // props.toggleItemDone(props.item.id);
+   dispatch({ type: TOGGLE_DONE });
   };
   return (
     <div
       onClick={handleClick}
-      className={`item${props.item.done ? " done" : ""}`}
+      className={`item${todoState.done ? " done" : ""}`}
     >
-      <p>{props.item.name}</p>
+      <p>{todoState.todo}</p>
     </div>
   );
 };

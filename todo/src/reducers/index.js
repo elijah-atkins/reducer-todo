@@ -1,20 +1,18 @@
-import React, { useReducer } from 'react';
-
 export const TOGGLE_EDITING = "TOGGLE_EDITNG";
 export const END_ITEM_UPDATE = "END_ITEM_UPDATE";
 export const TOGGLE_DONE = "TOGGLE_DONE";
 
 
-const initialState = {
+export const initialTodoState = {
     //get from local storage
     editing: false,
     done: false,
-    item: ""
+    item: "Hello World"
 
 
 }
 
-function reducer(state, action){
+export function itemReducer(state, action){
     switch(action.type){
         case TOGGLE_EDITING:
             return {
