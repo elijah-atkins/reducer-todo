@@ -4,13 +4,15 @@ import AddItemForm from "./components/AddItemForm";
 import TodoList from "./components/TodoList";
 import data from "./data/data";
 import { useForm } from "./hooks/useForm";
-import { todoReducer, ADD_TODO } from "./reducers";
+import { connect } from "react-redux";
+
+import { addTodo } from './actions';
 
 function App() {
   const thisList = {
     list: [...data],
   };
-  const [todoState, dispatch] = useReducer(todoReducer, thisList);
+  //const [todoState, dispatch] = useReducer(todoReducer, thisList);
   const [items, setItems] = useState(data);
 
   const clearDone = () => {
@@ -29,7 +31,7 @@ function App() {
       done: false,
       editing: false,
     };
-    dispatch({ type: ADD_TODO, payload: newItem });
+    //dispatch({ type: ADD_TODO, payload: newItem });
 
   };
   const [values] = useForm(
@@ -54,10 +56,18 @@ function App() {
         <AddItemForm addTodo={addTodo} />
       </header>
       <div className="body">
-        <TodoList items={todoState.list} clearDone={clearDone} />
+        <TodoList items={this.state.list} clearDone={clearDone} />
       </div>
     </div>
   );
 }
+const mapStateToProps = state => {
+  return {
+    todo: state.todo
+  };
+};
 
-export default App;
+export default connect(
+  mapStateToProps,
+  { addTodo }
+)(App);

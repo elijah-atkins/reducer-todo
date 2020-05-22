@@ -1,9 +1,10 @@
-export const TOGGLE_EDITING = "TOGGLE_EDITNG";
-export const END_ITEM_UPDATE = "END_ITEM_UPDATE";
-export const TOGGLE_DONE = "TOGGLE_DONE";
-export const ADD_TODO = "ADD_TODO";
-export const CLEAR_DONE = "CLEAR_DONE";
-
+import {
+  TOGGLE_DONE,
+  TOGGLE_EDITING,
+  END_ITEM_UPDATE,
+  ADD_TODO,
+  CLEAR_DONE
+} from '../actions'
 export const initialTodoState = {
   editing: false,
   done: false,

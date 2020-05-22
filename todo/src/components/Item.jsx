@@ -1,5 +1,10 @@
 import React, { useReducer, useState } from "react";
-import { todoReducer, TOGGLE_EDITING, TOGGLE_DONE, END_ITEM_UPDATE } from "../reducers";
+
+import { connect } from "react-redux";
+import { toggleEditing, toggleDone, endItemUpdate } from '../actions';
+
+//import { todoReducer, TOGGLE_EDITING, TOGGLE_DONE, END_ITEM_UPDATE } from "../reducers";
+
 const Item = ({ item }) => {
   const thisTodo = {
     todo: item.todo,
@@ -7,13 +12,13 @@ const Item = ({ item }) => {
     id: item.id,
     done: false,
   };
-  const [todoState, dispatch] = useReducer(todoReducer, thisTodo);
+  //const [todoState, dispatch] = useReducer(todoReducer, thisTodo);
   const [newTodoText, editTodoText] = useState(thisTodo.todo);
   const handleDoubleClick = (e) => {
-    dispatch({ type: TOGGLE_EDITING });
+  //  dispatch({ type: TOGGLE_EDITING });
   };
   const handleClick = (e) => {
-    dispatch({ type: TOGGLE_DONE });
+  //  dispatch({ type: TOGGLE_DONE });
   };
   const handleChanges = e => {
     editTodoText(e.target.value);
@@ -22,10 +27,10 @@ const Item = ({ item }) => {
     <div
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
-      className={`item${todoState.done ? " done" : ""}`}
+      className={`item${this.state.done ? " done" : ""}`}
     >
-      {!todoState.editing ? (
-        <p>{todoState.todo}</p>
+      {!this.state.editing ? (
+        <p>{this.state.todo}</p>
       ) : (
         <div>
           <input
@@ -37,7 +42,7 @@ const Item = ({ item }) => {
           />
           <button
             onClick={() => {
-              dispatch({ type: END_ITEM_UPDATE, payload: newTodoText });
+             // dispatch({ type: END_ITEM_UPDATE, payload: newTodoText });
             }}
           >
             Update
@@ -48,4 +53,19 @@ const Item = ({ item }) => {
   );
 };
 
-export default Item;
+const mapStateToProps = state => {
+  return {
+    // whatWillBeSentToProps: state.stateVariableWeWantForThisApp
+    editing: state.editing,
+    todo: state.todo,
+    done: state.done
+  };
+};
+
+// const hoc = connect(mapStateToProps, {});
+// const EnhancedTitleComponent = hoc(Title);
+// export default EnhancedTitleComponent;
+export default connect(
+  mapStateToProps,
+  { toggleEditing, toggleDone, endItemUpdate } //toggleEditing: toggleEditing }
+)(Item);
