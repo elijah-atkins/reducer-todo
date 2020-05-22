@@ -4,13 +4,13 @@ import AddItemForm from "./components/AddItemForm";
 import TodoList from "./components/TodoList";
 import data from "./data/data";
 import { useForm } from "./hooks/useForm";
-import { itemReducer, ADD_TODO } from "./reducers";
+import { todoReducer, ADD_TODO } from "./reducers";
 
 function App() {
   const thisList = {
     list: [...data],
   };
-  const [todoState, dispatch] = useReducer(itemReducer, thisList);
+  const [todoState, dispatch] = useReducer(todoReducer, thisList);
   const [items, setItems] = useState(data);
 
   const clearDone = () => {
@@ -22,7 +22,7 @@ function App() {
       ],
     });
   };
-  const addItem = (item) => {
+  const addTodo = (item) => {
     const newItem = {
       todo: item,
       id: Date.now(),
@@ -51,7 +51,7 @@ function App() {
     <div className="App">
       <header className="header">
         <h2>Todo List</h2>
-        <AddItemForm addItem={addItem} />
+        <AddItemForm addTodo={addTodo} />
       </header>
       <div className="body">
         <TodoList items={todoState.list} clearDone={clearDone} />

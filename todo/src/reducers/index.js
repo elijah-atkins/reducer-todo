@@ -13,7 +13,7 @@ export const initialTodoState = {
 };
 
 
-export function itemReducer(state, action) {
+export function todoReducer(state, action) {
   switch (action.type) {
     case ADD_TODO:
       return {

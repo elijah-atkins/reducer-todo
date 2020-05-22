@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from "react";
-import { itemReducer, TOGGLE_EDITING, TOGGLE_DONE, END_ITEM_UPDATE } from "../reducers";
+import { todoReducer, TOGGLE_EDITING, TOGGLE_DONE, END_ITEM_UPDATE } from "../reducers";
 const Item = ({ item }) => {
   const thisTodo = {
     todo: item.todo,
@@ -7,7 +7,7 @@ const Item = ({ item }) => {
     id: item.id,
     done: false,
   };
-  const [todoState, dispatch] = useReducer(itemReducer, thisTodo);
+  const [todoState, dispatch] = useReducer(todoReducer, thisTodo);
   const [newTodoText, editTodoText] = useState(thisTodo.todo);
   const handleDoubleClick = (e) => {
     dispatch({ type: TOGGLE_EDITING });

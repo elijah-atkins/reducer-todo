@@ -27,6 +27,7 @@ In this project, you build an app that let's you display a todo list from reduce
 - [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
 - [x] Push commits: git push origin `<firstName-lastName>`.
 - [x] Install sass `npm i node-sass`.
+- [x] Install lodash `npm i -s lodash`
 
 
 Follow these steps for completing your project.
